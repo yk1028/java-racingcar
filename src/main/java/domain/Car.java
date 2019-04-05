@@ -30,11 +30,8 @@ public class Car {
 
 	private boolean canMove() {
 		Random random = new Random();
-
-		if (random.nextInt(10) >= 4) {
-			return true;
-		}
-		return false;
+		
+		return random.nextInt(10) >= 4;
 	}
 
 	public void move() {
