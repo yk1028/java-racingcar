@@ -15,7 +15,7 @@ import java.util.Vector;
 
 public class RacingGame {
 	private Scanner scanner = new Scanner(System.in);
-	private Vector<Car> ㅊars = new Vector<Car>();
+	private Vector<Car> cars = new Vector<Car>();
 	private int round = 0;
 	private static final int ROUND_LIMIT = 10000;
 
@@ -84,7 +84,7 @@ public class RacingGame {
 
 	private void makeCars(String[] carNameArray) {
 		for (int i = 0; i < carNameArray.length; i++) {
-			ㅊars.add(new Car(carNameArray[i]));
+			cars.add(new Car(carNameArray[i]));
 		}
 	}
 
@@ -97,10 +97,7 @@ public class RacingGame {
 	}
 
 	private void moveCars() {
-		Car car;
-
-		for (int i = 0; i < ㅊars.size(); i++) {
-			car = ㅊars.elementAt(i);
+		for (Car car : cars) {
 			car.move();
 			car.printPosition();
 		}
@@ -110,8 +107,7 @@ public class RacingGame {
 		String winnerCarNameList = "";
 		int farthestPosition = -1;
 
-		for (int i = 0; i < ㅊars.size(); i++) {
-			Car car = ㅊars.elementAt(i);
+		for (Car car : cars) {
 			if (farthestPosition < car.getPosition()) {
 				winnerCarNameList = car.getName();
 				farthestPosition = car.getPosition();
